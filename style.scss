@@ -1,4 +1,7 @@
-$my_font : "BlenderConsensed";
+$my_font: "BlenderConsensed";
+$green_line_color: rgb(47, 108, 73);
+$titles_color:  rgb(0, 18, 63);
+$subtitle_bg_color: rgba(99, 109, 138, 0.9);
 
 * {
     margin: 0;
@@ -39,7 +42,7 @@ body {
     grid-column: 6 / 13;
     grid-row: 11 / 12;
 
-    background-color: rgb(47, 108, 73);
+    background-color: $green_line_color;
     width: 88.8%;
     height: 18%;
 
@@ -72,7 +75,7 @@ body {
 
 .title {
     font-size: 110px;
-    color: rgb(0, 18, 63);
+    color: $titles_color;
     text-align: center;
     justify-self: center;
     align-self: center;
@@ -90,9 +93,9 @@ body {
     justify-self: center;
     align-self: center;
 
-    background-color: rgba(99, 109, 138, 0.9);
+    background-color: $subtitle_bg_color;
     border-style: dotted;
-    border-color: rgb(0, 18, 63);
+    border-color: $titles_color;
     padding: 3px;
     background-clip:content-box;
 }
