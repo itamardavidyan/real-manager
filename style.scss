@@ -1,7 +1,3 @@
-$my_color : #edeff3;
-$bg_color : #C0C0C0;
-// $debug_color :  rgba(0, 255, 255, 0);
-$debug_color : #303030;
 $my_font : "BlenderConsensed";
 
 * {
@@ -11,8 +7,6 @@ $my_font : "BlenderConsensed";
 
 body {
     font-family: $my_font;
-    // background-color: $bg_color;
-    background-image: url("../png/background.png");
 
     width: 100%;
     height: 100%;
@@ -41,10 +35,6 @@ body {
     padding-top: 20px;
 }
 
-// #bars {
-//     height
-// }
-
 .green-line {
     grid-column: 6 / 13;
     grid-row: 11 / 12;
@@ -63,7 +53,6 @@ body {
     grid-row: 11 / 13;
 
     font-size: 40px;
-    // background-color: aqua;
 
     justify-self: center;
     align-self: center;
@@ -71,8 +60,6 @@ body {
     color: rgb(0, 18, 63);
 }
 
-
-  
 
 .titles {
     grid-column: 6 / 13;
@@ -108,7 +95,6 @@ body {
     border-color: rgb(0, 18, 63);
     padding: 3px;
     background-clip:content-box;
-
 }
 
 .player {
@@ -133,12 +119,8 @@ body {
     z-index: 1;
     width: 430px;
     height: 430px;
-    // max-width: 150px;
-    // max-height: 150px;
-    opacity: 0.5;
-    // align-self: stretch;
-    // justify-self: stretch;
 
+    opacity: 0.5;
 }
 
 .logo {
@@ -151,7 +133,6 @@ body {
 
 .main-container {
     display: grid;
-    // background-color: $debug_color;
     height: 100%;
     grid-template-columns: auto 900px auto;
     grid-template-rows: auto 600px auto;
@@ -160,9 +141,11 @@ body {
 .container {
     grid-column: 2;
     grid-row: 2;
-    // background-color: #C0C0C0;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    background-image: url("../png/background.png");
+    background-position: center;
+    background-size: cover;
 }

@@ -4,7 +4,6 @@
 
 body {
   font-family: "BlenderConsensed";
-  background-image: url("../png/background.png");
   width: 100%;
   height: 100%;
   position: fixed !important;
@@ -116,6 +115,9 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr); }
+  grid-template-rows: repeat(12, 1fr);
+  background-image: url("../png/background.png");
+  background-position: center;
+  background-size: cover; }
 
 /*# sourceMappingURL=style.css.map */

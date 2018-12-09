@@ -25,9 +25,7 @@ $(document).ready(function () {
             events: [], // disable re-render 
             animation: { // add captions
                 duration: 1000,
-                onProgress: async function () { // change to onComplete to show the captions after the animation
-                    // var bars = this.getElementAtEvent(event);
-                    // console.log(bars);
+                onProgress: function() { // change to onComplete to show the captions after the animation
                     let controller = this.chart.controller;
                     let chart = controller.chart;
                     let xAxis = controller.scales['x-axis-0'];
@@ -50,11 +48,34 @@ $(document).ready(function () {
                             ctx.fillText(lines[lines.length - j - 1], xOffset, yOffset - j*15);
                         }
 
+                        // --> enable if you want to show the score before the bars 
+                        // let height = meta.data[index]._model.y;
+                        // ctx.font = '20pt BlenderConsensed';
+                        // ctx.fillStyle = 'rgb(0, 18, 63)';
+
+                        // let text = arr_data[index] + " נק'";
+                        // // ctx.fillText(text, xOffset, height - 5);
+                    });
+                },
+                onComplete: function() { // --> show the scores after the bars loaded
+                    let controller = this.chart.controller;
+                    let xAxis = controller.scales['x-axis-0'];
+
+                    let numTicks = xAxis.ticks.length;
+                    let xOffsetStart = xAxis.width / numTicks;
+                    let halfBarWidth = xOffsetStart / 2;
+
+                    let meta = myChart.getDatasetMeta(0);
+
+                    arr_data.forEach(function (value, index) {
+                        let xOffset = (xOffsetStart * index) + halfBarWidth + 10;
                         let height = meta.data[index]._model.y;
+
                         ctx.font = '20pt BlenderConsensed';
                         ctx.fillStyle = 'rgb(0, 18, 63)';
+                        ctx.textAlign="center";
 
-                        let text = arr_data[index] + " נק'";
+                        const text = value + " נק'";
                         ctx.fillText(text, xOffset, height - 5);
                     });
                 }
