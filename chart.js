@@ -1,12 +1,33 @@
 $(document).ready(function () {
+    // --> KS
+    var titleColor = 'rgb(0, 18, 63)';
+    var barColor = 'rgba(48,71,159,1)';
+    var barGardientColor = 'rgba(68,108,233,1)';
+
+    // --> MH
+    // var titleColor = 'rgb(51, 134, 41)';
+    // var barColor = 'rgba(28,127,42,1)';
+    // var barGardientColor = 'rgba(22,190,45,1)';
+
+    // --> HTA
+    // var titleColor = 'rgb(229, 56, 41)';
+    // var barColor = 'rgba(167,33,33,1)';
+    // var barGardientColor = 'rgba(232,33,34,1)';
+
+    // --> MTA
+    // var titleColor = 'rgb(220, 241, 11)';
+    // var barColor = 'rgba(215,200,38,1)';
+    // var barGardientColor = 'rgba(237,219,24,1)';
+
+
     var ctx = $("#bars")[0].getContext('2d');
     var arr_data = [4, 7, 25, 20, 70, 50]; // represent the value of bars
     let max_value = Math.max(...arr_data);
     var arr_bg = []; // 
     arr_data.forEach(function (value, i) {
         let gradient = ctx.createLinearGradient(0, 170 - value, 0, 200);
-        gradient.addColorStop(0, 'rgba(48,71,159,1)');
-        gradient.addColorStop(1, 'rgba(68,108,233,1)');
+        gradient.addColorStop(0, barColor);
+        gradient.addColorStop(1, barGardientColor);
         arr_bg[i] = gradient;
     });
     
@@ -17,7 +38,7 @@ $(document).ready(function () {
             datasets: [{
                 data: arr_data,
                 backgroundColor: arr_bg,
-                borderColor: 'rgba(48,71,159,1)',
+                borderColor: barColor,
                 borderWidth: 4
             }]
         },
@@ -39,13 +60,13 @@ $(document).ready(function () {
 
                     xAxis.ticks.forEach(function (value, index) {
                         let xOffset = (xOffsetStart * index) + halfBarWidth + 10;
-                        ctx.font = '15pt BlenderConsensed';
+                        ctx.font = '20pt BlenderConsensed';
                         ctx.fillStyle = 'white';
                         ctx.textAlign="center";
 
                         let lines = value.split(' ');
                         for (let j=0; j < lines.length ; j++ ) {
-                            ctx.fillText(lines[lines.length - j - 1], xOffset, yOffset - j*15);
+                            ctx.fillText(lines[lines.length - j - 1], xOffset, yOffset - j*20);
                         }
 
                         // --> enable if you want to show the score before the bars 
@@ -71,8 +92,8 @@ $(document).ready(function () {
                         let xOffset = (xOffsetStart * index) + halfBarWidth + 10;
                         let height = meta.data[index]._model.y;
 
-                        ctx.font = '20pt BlenderConsensed';
-                        ctx.fillStyle = 'rgb(0, 18, 63)';
+                        ctx.font = '25pt BlenderConsensed';
+                        ctx.fillStyle = titleColor;
                         ctx.textAlign="center";
 
                         const text = value + " נק'";

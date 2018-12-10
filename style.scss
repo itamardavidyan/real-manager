@@ -1,7 +1,24 @@
 $my_font: "BlenderConsensed";
 $green_line_color: rgb(47, 108, 73);
+
+// --> KS
 $titles_color:  rgb(0, 18, 63);
 $subtitle_bg_color: rgba(99, 109, 138, 0.9);
+
+// --> MH
+// $titles_color:  rgb(51, 134, 41);
+// $subtitle_bg_color: rgba(66, 115, 60, 0.9);
+
+// --> HTA
+// $titles_color:  rgb(229, 56, 41);
+// $subtitle_bg_color: rgba(138, 53, 45, 0.9);
+
+// --> MTA
+// $titles_color:  rgb(220, 241, 11);
+// $subtitle_bg_color: rgba(192, 207, 46, 0.9);
+
+$container_width: 723px;
+$container_height: ($container_width * 3 / 2);
 
 * {
     margin: 0;
@@ -13,6 +30,7 @@ body {
 
     width: 100%;
     height: 100%;
+    background-color: rgb(229, 229, 229);
 
     // full screen
     position: fixed !important;
@@ -32,10 +50,11 @@ body {
     justify-self: stretch;
     align-self: end;
 
-    margin-right: 20px;
-    margin-left: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    $space: $container_height / 9 / 5;
+    margin-right: $space;
+    margin-left: $space;
+    padding-bottom: $space;
+    padding-top: $space;
 }
 
 .green-line {
@@ -55,12 +74,12 @@ body {
     grid-column: 6 / 13;
     grid-row: 11 / 13;
 
-    font-size: 40px;
+    font-size: $container_height / 9 / 2.5;
 
     justify-self: center;
     align-self: center;
     margin-left: 2%;
-    color: rgb(0, 18, 63);
+    color: $titles_color;
 }
 
 
@@ -69,24 +88,24 @@ body {
     grid-row: 1 / 4;
     justify-self: center;
     display: grid;
-    max-height: 75px;
+    max-height: $container_height / 9 * 0.75;
     z-index: 2;
 }
 
 .title {
-    font-size: 110px;
+    font-size: $container_height / 9 * 1.1;
     color: $titles_color;
     text-align: center;
     justify-self: center;
     align-self: center;
     margin-block-start: 0px;
     margin-block-end: 0px;
-    height: 115px;
+    height: $container_height / 9 * 1.15;
 }
 
 .subtitle {
-    font-size: 35px;
-    height: 45px;
+    font-size: $container_height / 9 * 0.35;
+    height: $container_height / 9 * 0.45;
     width: 100%;
     color: white;
     text-align: center;
@@ -113,15 +132,15 @@ body {
     grid-row: 10 / 13;
     z-index: 3;
     align-self: end;
-    max-width: 480px;
+    max-width: $container_height / 9 * 4.8;
 }
 
 .team-logo {
     grid-column: 2 / 8;
     grid-row: 3 / 12;
     z-index: 1;
-    width: 430px;
-    height: 430px;
+    width: $container_height / 9 * 4.3;
+    height: $container_height / 9 * 4.3;
 
     opacity: 0.5;
 }
@@ -137,8 +156,8 @@ body {
 .main-container {
     display: grid;
     height: 100%;
-    grid-template-columns: auto 900px auto;
-    grid-template-rows: auto 600px auto;
+    grid-template-columns: auto $container_height auto;
+    grid-template-rows: auto $container_width auto;
 }
 
 .container {
@@ -151,4 +170,51 @@ body {
     background-image: url("../png/background.png");
     background-position: center;
     background-size: cover;
+}
+
+@media screen and (max-width: 600px) {
+    $container_width: 300px;
+    $container_height: ($container_width * 3 / 2);
+
+
+    .main-container {
+        grid-template-columns: auto $container_height auto;
+        grid-template-rows: auto ($container_height / 3 * 2) auto;
+    }
+    
+    .graph {    
+        $space: $container_height / 9 / 5;
+        margin-right: $space;
+        margin-left: $space;
+        padding-bottom: $space;
+        padding-top: $space;
+    }
+
+    .score {
+        font-size: $container_height / 9 / 2.5;
+    }
+    
+    
+    .titles {
+        max-height: $container_height / 9 * 0.75;
+    }
+    
+    .title {
+        font-size: $container_height / 9 * 1.1;
+        height: $container_height / 9 * 1.15;
+    }
+    
+    .subtitle {
+        font-size: $container_height / 9 * 0.35;
+        height: $container_height / 9 * 0.45;
+    }
+    
+    .ynet-logo {
+        max-width: $container_height / 9 * 4.8;
+    }
+    
+    .team-logo {
+        width: $container_height / 9 * 4.3;
+        height: $container_height / 9 * 4.3;
+    }
 }
