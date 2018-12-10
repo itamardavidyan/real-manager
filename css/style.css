@@ -121,36 +121,25 @@ body {
   background-position: center;
   background-size: cover; }
 
-@media screen and (max-width: 600px) {
-  .main-container {
-    grid-template-columns: auto 450px auto;
-    grid-template-rows: auto 300px auto; }
-
-  .graph {
-    margin-right: 10px;
-    margin-left: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px; }
-
-  .score {
-    font-size: 20px; }
-
-  .titles {
-    max-height: 37.5px; }
-
-  .title {
-    font-size: 55px;
-    height: 57.5px; }
-
-  .subtitle {
-    font-size: 17.5px;
-    height: 22.5px; }
-
-  .ynet-logo {
-    max-width: 240px; }
-
-  .team-logo {
-    width: 215px;
-    height: 215px; } }
+.ltr .logo {
+  grid-column: 11 / 13; }
+.ltr .graph {
+  grid-column: 1 / 8; }
+.ltr .green-line {
+  grid-column: 1 / 8; }
+.ltr .score {
+  grid-column: 1 / 8;
+  margin-right: 2%; }
+.ltr .titles {
+  grid-column: 1 / 8; }
+.ltr .player {
+  grid-column: 9 / 13;
+  content: url("../png/KS Player ltr.png"); }
+.ltr .ynet-logo {
+  grid-column: 11 / 13;
+  justify-self: end;
+  content: url("../png/ynet Logo ltr.png"); }
+.ltr .team-logo {
+  grid-column: 6 / 12; }
 
 /*# sourceMappingURL=style.css.map */
